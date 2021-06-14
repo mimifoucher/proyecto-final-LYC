@@ -1,0 +1,1997 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;1,300&family=Oswald:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;1,300&family=Oswald:wght@500&family=Stint+Ultra+Condensed&display=swap");
+/*VARIABLES DE COLORES Y TAMAÑO*/
+/*MIXIN FLEXBOX*/
+/*MIXIN ICONOS REDES SOCIALES*/
+img {
+  max-width: 100%;
+}
+
+/*AQUÍ COLOQUE LOS MEDIA QUIERES PARA CELULAR Y TABLET*/
+@media screen and (min-width: 240px) and (max-width: 499px) {
+  /*BODY DE CELULAR*/
+  .body {
+    margin: 0;
+    background-color: #eeebdd;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 150px 1fr 110px;
+        grid-template-rows: 150px 1fr 110px;
+  }
+  /*HEADER DE CELULAR*/
+  .header {
+    background-color: #b10202;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    /*ANIMACIÓN DEL BOTÓN*/
+    /* &-logo__img {
+      width: 120px;
+      height: 150px;
+    } */
+  }
+  .header-logo__img {
+    width: 90px;
+    height: 110px;
+  }
+  .header-menu {
+    display: none;
+  }
+  .header-menu__links {
+    display: none;
+  }
+  .header-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 300;
+  }
+  .header-button__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 350;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    right: 10px;
+    /* top: 50px; */
+  }
+  .header-button__hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 325;
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: row;
+        -ms-flex-align: row;
+            align-items: row;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: var(--primary-color);
+    /*   top: 58px; */
+  }
+  .header-button .header-button__hamburger > div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: row;
+        -ms-flex-align: row;
+            align-items: row;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  .header-button .header-button__hamburger > div:before,
+  .header-button .header-button__hamburger > div:after {
+    content: "";
+    position: absolute;
+    z-index: 325;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  .header-button .header-button__hamburger > div:after {
+    top: 10px;
+  }
+  .header-button .header-button__icon:checked + .header-button__hamburger > div {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  .header-button .header-button__icon:checked + .header-button__hamburger > div:before,
+  .header-button .header-button__icon:checked + .header-button__hamburger > div:after {
+    top: 0;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .header-button .header-button__icon:checked:hover + .header-button__hamburger > div {
+    -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+  }
+  .header-button .header-button__icon:checked ~ .header-menu {
+    visibility: visible;
+  }
+  .header-button .header-button__icon:checked ~ .header-menu > div {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transition-duration: var(--menu-speed);
+            transition-duration: var(--menu-speed);
+  }
+  .header-button .header-button__icon:checked ~ .header-menu > div > div {
+    opacity: 1;
+    -webkit-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+  }
+  .header-button .header-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: column;
+        -ms-flex-align: column;
+            align-items: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    visibility: hidden;
+    background-color: rgba(33, 33, 33, 0.7);
+  }
+  .header-button .header-menu > div {
+    background: var(--over-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: row;
+        -ms-flex-align: row;
+            align-items: row;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transition: all 0.4 ease;
+    transition: all 0.4 ease;
+  }
+  .header-button .button-menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+  }
+  .header-button .header-menu > div > div > ul > li {
+    list-style: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .header-button .header-menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: color 0.4s ease;
+    transition: color 0.4s ease;
+  }
+  .header-title {
+    margin: 0;
+  }
+  .header-title__leones {
+    color: #eeebdd;
+    font-size: 5vw;
+    margin: 0;
+    font-family: "New Tegomin", serif;
+    display: inline;
+  }
+  .header-title__corderos {
+    color: black;
+    font-size: 5vw;
+    margin: 0;
+    font-family: "New Tegomin", serif;
+    display: inline;
+  }
+  .header-subtitle {
+    text-align: center;
+    font-size: 3vw;
+  }
+  /*MAIN PARA CELULAR*/
+  .main {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    /*MAIN CELULAR CARTELERA*/
+    /*IMAGENES CHARLAS DE CAFE*/
+  }
+  .main-desktop {
+    display: none;
+  }
+  .main-inscripciones {
+    text-align: center;
+    background: url(../imagenes-css/imagenes-alquilersalas/891f4bc1459ba4dbd3fd546e5b32dd8c.jpg) repeat fixed 100%;
+    background-size: cover;
+    background-position-x: center;
+    font-family: "New Tegomin", serif;
+    height: 250px;
+    padding: 13% 0;
+    font-size: 3vw;
+    margin-top: 10px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .main-inscripciones__text {
+    color: black;
+    margin: 0;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0 3vw 0 3vw;
+    width: 70vw;
+    height: 35vw;
+    font-size: 4vw;
+  }
+  .main-funciones {
+    overflow: hidden;
+  }
+  .main-funciones__title {
+    font-size: 4vw;
+    padding: 30px 0px 5px 0px;
+    font-family: "New Tegomin", serif;
+    width: 100%;
+    background-color: #b10202;
+  }
+  .main-funciones__hamlet, .main-funciones__bodas, .main-funciones__romeo, .main-funciones__yerma {
+    height: 200px;
+    width: 20%;
+    float: left;
+  }
+  .main-figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    -webkit-animation: 20s slider infinite;
+            animation: 20s slider infinite;
+  }
+  .main-subtitle {
+    height: 30px;
+    background-color: #b10202;
+  }
+  .main-title__section {
+    color: #b10202;
+    font-size: 5vw;
+    font-family: "New Tegomin", serif;
+  }
+  .main-cartelera__img {
+    width: 100%;
+    height: 60vw;
+    padding-top: 3vw;
+    border-radius: 5px;
+    -webkit-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
+  }
+  .main-cartelera__figure {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .main-cartelera__info {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
+    width: 100%;
+    height: 100%;
+    font-size: 4vw;
+  }
+  .main-cartelera__figure:hover > .main-cartelera__info {
+    opacity: 1;
+    visibility: visible;
+  }
+  .main-cafe {
+    width: 100%;
+  }
+  .main-cafe__img2 {
+    width: 100%;
+  }
+  @-webkit-keyframes slider {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+    100% {
+      left: -400%;
+    }
+  }
+  @keyframes slider {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+    100% {
+      left: -400%;
+    }
+  }
+  #main-subtitle {
+    background-color: #b10202;
+    width: 100%;
+  }
+  #main-subtitle__cafe {
+    font-family: "New Tegomin", serif;
+    background-color: #b10202;
+  }
+  /*FOOTER PARA CELULAR*/
+  .footer {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #b10202;
+  }
+  .footer-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    margin-top: 5px;
+  }
+  .footer-instagram__img, .footer-facebook__img, .footer-home__img, .footer-mail__img, .footer-phone__img, .footer-twitter__img {
+    width: 15px;
+    height: 15px;
+    margin: 7px 0px;
+    cursor: pointer;
+  }
+  .footer-instagram__img:hover {
+    background-color: #ad1c95;
+    border-radius: 6px;
+  }
+  .footer-facebook__img:hover {
+    background-color: #3a3a7e;
+    border-radius: 8px;
+  }
+  .footer-twitter__img:hover {
+    background-color: #4db0b8;
+    border-radius: 8px;
+  }
+  .footer-home__img:hover {
+    background-color: grey;
+    border-radius: 8px;
+  }
+  .footer-mail__img:hover {
+    background-color: white;
+    border-radius: 8px;
+  }
+  .footer-phone__img:hover {
+    background-color: #089c08;
+    border-radius: 8px;
+  }
+  .footer-copyright {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footer-copyright h3 {
+    margin: 5px 2px;
+    font-size: 2vw;
+  }
+  .footer-redes {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-redes__div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-redes__div h3 {
+    display: none;
+  }
+  .footer-datos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-datos__div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-datos__div h3 {
+    margin: 5px 3px;
+    font-size: 10px;
+  }
+  .footer .footer-copyright__text {
+    font-size: 10px;
+  }
+  .footer-copyright__img {
+    width: 10px;
+    height: 10px;
+    margin: 5px 0px;
+  }
+  /*SECCIÓN TALLERES-CELULAR*/
+  .main-talleres__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .main-talleres__parrafo {
+    background-color: rgba(173, 21, 21, 0.7);
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+  }
+  .talleres-container__teatro,
+  .talleres-container__canto,
+  .talleres-container__clown,
+  .talleres-container__danza {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main-talleres__img {
+    padding-bottom: 4vw;
+    width: 100%;
+  }
+  .main-talleres__subtitle {
+    background-color: #b10202;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+    font-size: 6vw;
+  }
+  /*SECCIÓN "ALQUILER DE SALAS-CELULAR*/
+  .salas-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .img-escenario {
+    width: 100%;
+  }
+  .img-escenario__cuatro {
+    width: 100%;
+  }
+  .salas-subtitle {
+    background-color: #b10202;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+  }
+  .salas-text__p {
+    background-color: rgba(173, 21, 21, 0.7);
+    font-weight: bold;
+    font-family: "Newsreader", serif;
+  }
+  /*SECCIÓN "CARTELERA-CELULAR*/
+  .main-table {
+    width: 100%;
+  }
+  .main-table__title {
+    background-color: #b10202;
+    color: black;
+  }
+  th {
+    font-size: 3vw;
+  }
+  td {
+    font-size: 3vw;
+  }
+  /*SECCIÓN "CONTACTO-CELULAR*/
+  .main-form {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: rgba(173, 21, 21, 0.7);
+  }
+  .main-form__label {
+    font-size: 4vw;
+    padding: 0 10px 0 10px;
+  }
+  .main-form__datos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 0 10px 0;
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+  }
+  .main-form__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 10px 10px 10px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .main-form__textarea {
+    padding: 0 10px 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .main-form input {
+    cursor: pointer;
+    border: solid 3px;
+    border-radius: 5px;
+    color: #eeebdd;
+    background-color: black;
+  }
+  textarea {
+    resize: none;
+  }
+  .main-map {
+    width: 100%;
+  }
+  .main-map__iframe {
+    width: 100%;
+  }
+  .contacto-text {
+    font-family: "New Tegomin", serif;
+    padding: 3vw;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+/*MEDIA QUIERE TABLET*/
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .body {
+    margin: 0;
+    background-color: #eeebdd;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 150px 1fr 170px;
+        grid-template-rows: 150px 1fr 170px;
+  }
+  /*HEADER DE TABLET*/
+  .header {
+    background-color: #b10202;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    /*ANIMACIÓN DEL BOTÓN*/
+  }
+  .header-logo__img {
+    width: 90px;
+    height: 110px;
+  }
+  .header-menu {
+    display: none;
+  }
+  .header-menu__links {
+    display: none;
+  }
+  .header-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 300;
+  }
+  .header-button__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 350;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    right: 10px;
+    /* top: 50px; */
+  }
+  .header-button__hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 325;
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: row;
+        -ms-flex-align: row;
+            align-items: row;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: var(--primary-color);
+    /*   top: 58px; */
+  }
+  .header-button .header-button__hamburger > div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: row;
+        -ms-flex-align: row;
+            align-items: row;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  .header-button .header-button__hamburger > div:before,
+  .header-button .header-button__hamburger > div:after {
+    content: "";
+    position: absolute;
+    z-index: 325;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  .header-button .header-button__hamburger > div:after {
+    top: 10px;
+  }
+  .header-button .header-button__icon:checked + .header-button__hamburger > div {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  .header-button .header-button__icon:checked + .header-button__hamburger > div:before,
+  .header-button .header-button__icon:checked + .header-button__hamburger > div:after {
+    top: 0;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .header-button .header-button__icon:checked:hover + .header-button__hamburger > div {
+    -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+  }
+  .header-button .header-button__icon:checked ~ .header-menu {
+    visibility: visible;
+  }
+  .header-button .header-button__icon:checked ~ .header-menu > div {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transition-duration: var(--menu-speed);
+            transition-duration: var(--menu-speed);
+  }
+  .header-button .header-button__icon:checked ~ .header-menu > div > div {
+    opacity: 1;
+    -webkit-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+  }
+  .header-button .header-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: column;
+        -ms-flex-align: column;
+            align-items: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    visibility: hidden;
+    background-color: rgba(33, 33, 33, 0.7);
+  }
+  .header-button .header-menu > div {
+    background: var(--over-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: row;
+        -ms-flex-align: row;
+            align-items: row;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transition: all 0.4 ease;
+    transition: all 0.4 ease;
+  }
+  .header-button .button-menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+  }
+  .header-button .header-menu > div > div > ul > li {
+    list-style: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .header-button .header-menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: color 0.4s ease;
+    transition: color 0.4s ease;
+  }
+  .header-title {
+    margin: 0;
+  }
+  .header-title__leones {
+    color: #eeebdd;
+    font-size: 5vw;
+    margin: 0;
+    font-family: "New Tegomin", serif;
+    display: inline;
+  }
+  .header-title__corderos {
+    color: black;
+    font-size: 5vw;
+    margin: 0;
+    font-family: "New Tegomin", serif;
+    display: inline;
+  }
+  .header-subtitle {
+    text-align: center;
+    font-size: 3vw;
+  }
+  .main {
+    /*MAIN INDEX*/
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+  }
+  .main-subtitle__cafe {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    width: 100%;
+    background-color: #b10202;
+    text-align: center;
+  }
+  .main-inscripciones {
+    text-align: center;
+    background: url(../imagenes-css/imagenes-alquilersalas/891f4bc1459ba4dbd3fd546e5b32dd8c.jpg) repeat fixed 100%;
+    background-size: cover;
+    background-position-x: center;
+    font-family: "New Tegomin", serif;
+    height: 250px;
+    padding: 13% 0;
+    font-size: 3vw;
+    margin-top: 10px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .main-inscripciones__text {
+    color: black;
+    margin: 0;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0 3vw 0 3vw;
+    width: 70vw;
+    height: 14vw;
+    font-size: 3.5vw;
+  }
+  .main-funciones {
+    display: none;
+  }
+  .main-desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 40vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .main-desktop__title {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    background-color: #b10202;
+    width: 100%;
+    height: 4vw;
+  }
+  .main-desktop__hamlet, .main-desktop__bodas, .main-desktop__romeo {
+    width: 25vw;
+    height: 20vw;
+    margin: 2vw;
+  }
+  .main-desktop__figure {
+    height: 10vw;
+    width: 100%;
+    position: relative;
+  }
+  .main-cafe__img1 {
+    width: 90vw;
+    padding-top: 3vw;
+  }
+  .main-cafe__img2 {
+    width: 30vw;
+    height: 30vw;
+    padding: 0.5vw;
+  }
+  .main-cafe__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #b10202;
+  }
+  .footer-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .footer-instagram__img, .footer-facebook__img, .footer-home__img, .footer-mail__img, .footer-phone__img, .footer-twitter__img {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0px;
+    cursor: pointer;
+  }
+  .footer-instagram__img:hover {
+    background-color: #ad1c95;
+    border-radius: 6px;
+  }
+  .footer-facebook__img:hover {
+    background-color: #2c2cc2;
+    border-radius: 8px;
+  }
+  .footer-twitter__img:hover {
+    background-color: #4db0b8;
+    border-radius: 8px;
+  }
+  .footer-home__img:hover {
+    background-color: grey;
+    border-radius: 8px;
+  }
+  .footer-mail__img:hover {
+    background-color: white;
+    border-radius: 8px;
+  }
+  .footer-phone__img:hover {
+    background-color: #089c08;
+    border-radius: 8px;
+  }
+  .footer-copyright {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .footer-copyright h3 {
+    margin: 5px 2px;
+    font-size: 3vw;
+  }
+  .footer-redes {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-redes__div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-redes__div h3 {
+    margin: 1.9vw 10px;
+    font-size: 15px;
+  }
+  .footer-datos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-datos__div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-datos__div h3 {
+    margin: 1.9vw 10px;
+    font-size: 15px;
+  }
+  .footer .footer-copyright__text {
+    font-size: 10px;
+  }
+  .footer-copyright__img {
+    width: 20px;
+    height: 20px;
+    margin: 5px 0px;
+  }
+  /*SECCIÓN TALLERES-TABLET*/
+  .main-talleres__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .main-talleres__parrafo {
+    background-color: rgba(173, 21, 21, 0.7);
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+    text-align: center;
+  }
+  .talleres-container__teatro,
+  .talleres-container__canto,
+  .talleres-container__clown,
+  .talleres-container__danza {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main-talleres__img {
+    padding-bottom: 4vw;
+    width: 70vw;
+  }
+  .main-talleres__subtitle {
+    background-color: #b10202;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+    text-align: center;
+  }
+  /*SECCIÓN ALQUILER DE SALAS-TABLET*/
+  .salas-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .salas-text__p {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(173, 21, 21, 0.7);
+    font-family: "Newsreader", serif;
+  }
+  .img-escenario,
+  .img-teatro,
+  .img-musica,
+  .img-danza {
+    width: 100%;
+  }
+  .img-escenario__uno, .img-escenario__dos, .img-escenario__tres, .img-escenario__cuatro,
+  .img-teatro__uno,
+  .img-teatro__dos,
+  .img-teatro__tres,
+  .img-teatro__cuatro,
+  .img-musica__uno,
+  .img-musica__dos,
+  .img-musica__tres,
+  .img-musica__cuatro,
+  .img-danza__uno,
+  .img-danza__dos,
+  .img-danza__tres,
+  .img-danza__cuatro {
+    width: 100%;
+  }
+  .salas-subtitle {
+    background-color: #b10202;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+    text-align: center;
+  }
+  /*SECCIÓN CARTELERA-TABLET*/
+  .main-cartelera__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .main-cartelera__img {
+    width: 60vw;
+    height: 60vw;
+  }
+  .main-cartelera__figure {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .main-cartelera__info {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
+    width: 100%;
+    height: 100%;
+    font-size: 3vw;
+    text-align: center;
+  }
+  .main-cartelera__figure:hover > .main-cartelera__info {
+    opacity: 1;
+    visibility: visible;
+  }
+  .main-table {
+    width: 100%;
+  }
+  .main-table__title {
+    background-color: #b10202;
+    color: black;
+  }
+  th {
+    font-size: 3vw;
+  }
+  td {
+    font-size: 3vw;
+  }
+  /*SECCIÓN CONTACTO-TABLET*/
+  .contacto-text {
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+    font-family: "New Tegomin", serif;
+    padding: 3vw;
+    font-weight: bold;
+  }
+  .main-form {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: rgba(173, 21, 21, 0.7);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main-form__label {
+    font-size: 3vw;
+    padding: 0 10px 0 10px;
+  }
+  .main-form__datos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 0 10px 0;
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+  }
+  .main-form__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 10px 10px 10px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+  }
+  .main-form__textarea {
+    padding: 0 10px 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .main-form textarea {
+    width: 70vw;
+    height: 40vw;
+  }
+  .main-form input {
+    cursor: pointer;
+    border: solid 3px;
+    border-radius: 5px;
+    color: #eeebdd;
+    background-color: black;
+  }
+  textarea {
+    resize: none;
+  }
+  .main-map {
+    width: 100%;
+  }
+  .main-map__iframe {
+    width: 100%;
+    height: 50vw;
+  }
+}
+
+/*MEDIA QUIERE PARA DESKTOP*/
+@media screen and (min-width: 769px) {
+  /*BODY DESKTOP*/
+  .body {
+    margin: 0;
+    padding-top: 0;
+    background-color: #eeebdd;
+    background-size: cover;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100px 1fr 100px;
+        grid-template-columns: 100px 1fr 100px;
+    -ms-grid-rows: 150px 1fr 230px;
+        grid-template-rows: 150px 1fr 230px;
+    max-width: 100%;
+  }
+  .header {
+    background-color: #b10202;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+  }
+  .header-button {
+    display: none;
+  }
+  .header-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .header-title {
+    margin: 0;
+  }
+  .header-title__leones {
+    color: #eeebdd;
+    font-size: 2.5vw;
+    margin: 0;
+    font-family: "New Tegomin", serif;
+    display: inline;
+  }
+  .header-title__corderos {
+    color: black;
+    font-size: 2.5vw;
+    margin: 0;
+    font-family: "New Tegomin", serif;
+    display: inline;
+  }
+  .header-subtitle {
+    text-align: center;
+    font-size: 1.5vw;
+  }
+  .header-logo__img {
+    width: 130px;
+    height: 150px;
+  }
+  .header-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    margin: 0;
+  }
+  .header-menu__item {
+    color: black;
+    list-style: none;
+    margin: 0 2vw 0 2vw;
+  }
+  .header-menu__links {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    background-color: #b10202;
+    display: inline-block;
+    width: 100%;
+    font-size: 2vw;
+    font-family: "Oswald", sans-serif;
+  }
+  li:hover .header-menu__links {
+    color: #eeebdd;
+  }
+  ul ul li {
+    display: block;
+  }
+  ul li:hover ul {
+    display: block;
+    color: black;
+    background-color: rgba(139, 52, 52, 0.3);
+  }
+  /*MIXIN IMAGENES DE LAS OBRAS DE TEATRO*/
+  .main {
+    /*MAIN INDEX*/
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    /*MAIN CARTELERA*/
+  }
+  .main-subtitle__cafe {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    width: 100%;
+    background-color: #b10202;
+    text-align: center;
+  }
+  .main-inscripciones {
+    text-align: center;
+    background: url(../imagenes-css/imagenes-alquilersalas/891f4bc1459ba4dbd3fd546e5b32dd8c.jpg) repeat fixed 100%;
+    background-size: cover;
+    background-position-x: center;
+    font-family: "New Tegomin", serif;
+    height: 250px;
+    padding: 13% 0;
+    font-size: 3vw;
+    margin-top: 10px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .main-inscripciones__text {
+    color: black;
+    margin: 0;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0 3vw 0 3vw;
+    width: 70vw;
+    height: 14vw;
+    font-size: 3.5vw;
+  }
+  .main-funciones {
+    display: none;
+  }
+  .main-desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 35vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .main-desktop__title {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    background-color: #b10202;
+    width: 100%;
+    height: 4vw;
+  }
+  .main-desktop__hamlet, .main-desktop__bodas, .main-desktop__romeo {
+    width: 25vw;
+    height: 20vw;
+    margin: 2vw;
+  }
+  .main-desktop__figure {
+    height: 10vw;
+    width: 100%;
+    position: relative;
+  }
+  .main-cafe {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .main-cafe__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .main-cafe__img1 {
+    width: 90vw;
+    padding-top: 3vw;
+  }
+  .main-cafe__img2 {
+    width: 30vw;
+    height: 30vw;
+    padding: 1vw;
+  }
+  .main-cartelera__text {
+    background-color: #b10202;
+    font-family: "New Tegomin", serif;
+  }
+  .main-cartelera__img {
+    width: 100%;
+    height: 20vw;
+    padding-top: 3vw;
+    border-radius: 5px;
+    -webkit-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
+  }
+  .main-cartelera__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+  }
+  .main-cartelera__figure {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .main-cartelera__info {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
+    width: 100%;
+    height: 100%;
+    font-size: 1vw;
+    text-align: center;
+  }
+  .main-cartelera__figure:hover > .main-cartelera__info {
+    opacity: 1;
+    visibility: visible;
+  }
+  .main-table__title {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    background-color: #b10202;
+  }
+  .footer {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #b10202;
+  }
+  .footer-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .footer-instagram__img, .footer-facebook__img, .footer-home__img, .footer-mail__img, .footer-phone__img, .footer-twitter__img {
+    width: 25px;
+    height: 25px;
+    margin: 10px 0px;
+    cursor: pointer;
+  }
+  .footer-instagram__img:hover {
+    background-color: #ad1c95;
+    border-radius: 6px;
+  }
+  .footer-facebook__img:hover {
+    background-color: #2c2cc2;
+    border-radius: 8px;
+  }
+  .footer-twitter__img:hover {
+    background-color: #4db0b8;
+    border-radius: 8px;
+  }
+  .footer-home__img:hover {
+    background-color: grey;
+    border-radius: 8px;
+  }
+  .footer-mail__img:hover {
+    background-color: white;
+    border-radius: 8px;
+  }
+  .footer-phone__img:hover {
+    background-color: #089c08;
+    border-radius: 8px;
+  }
+  .footer-copyright {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .footer-copyright h3 {
+    margin: 5px 2px;
+    font-size: 3vw;
+  }
+  .footer-redes {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-redes__div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-redes__div h3 {
+    margin: 1vw 10px;
+    font-size: 20px;
+  }
+  .footer-datos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-datos__div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer-datos__div h3 {
+    margin: 1vw 10px;
+  }
+  .footer .footer-copyright__text {
+    font-size: 15px;
+  }
+  .footer-copyright__img {
+    width: 20px;
+    height: 20px;
+    margin: 5px 0px;
+  }
+  /*SECCIÓN CONTACTO-DESKTOP*/
+  .contacto-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .main-form {
+    background-color: rgba(173, 21, 21, 0.7);
+    width: 60vw;
+    height: 50vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .main-form__label {
+    font-size: 1.7vw;
+    font-family: "Stint Ultra Condensed", cursive;
+    letter-spacing: 0.2vw;
+  }
+  .main-form__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 2vw;
+    width: 100%;
+  }
+  .main-form__datos {
+    padding: 0.6vw;
+  }
+  textarea {
+    width: 40vw;
+    height: 25vw;
+  }
+  .contacto-text {
+    font-size: 1.7vw;
+    font-family: "New Tegomin", serif;
+    padding: 3vw;
+    width: 60vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-weight: bold;
+    text-align: center;
+  }
+  input {
+    cursor: pointer;
+    border: solid 3px;
+    border-radius: 5px;
+    color: #eeebdd;
+    background-color: black;
+  }
+  .main-map {
+    width: 100%;
+  }
+  .main-map__iframe {
+    width: 100%;
+    height: 30vw;
+  }
+  /*SECCIÓN ALQUILER DE SALAS-DESKTOP*/
+  .body-salas {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    min-height: 100vh;
+    max-width: 100%;
+  }
+  .main-title__section {
+    font-size: 3vw;
+  }
+  .salas-text__p {
+    padding: 5vw 0 0 0;
+    font-size: 2vw;
+    font-family: "Newsreader", serif;
+    text-align: center;
+    font-weight: bold;
+  }
+  .salas-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 11vw 5vw 11vw 5vw;
+  }
+  .img-teatro,
+  .img-danza,
+  .img-musica,
+  .img-escenario {
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+    padding: 2vw;
+  }
+  .salas-subtitle {
+    font-size: 1.5vw;
+    font-family: "Oswald", sans-serif;
+    background-color: #b10202;
+  }
+  .img-teatro:hover {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .img-danza:hover {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .img-musica:hover {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .img-escenario:hover {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .img-teatro__uno,
+  .img-teatro__dos,
+  .img-teatro__tres,
+  .img-teatro__cuatro,
+  .img-danza__uno,
+  .img-danza__dos,
+  .img-danza__tres,
+  .img-danza__cuatro,
+  .img-musica__uno,
+  .img-musica__dos,
+  .img-musica__tres,
+  .img-musica__cuatro,
+  .img-escenario__uno,
+  .img-escenario__dos,
+  .img-escenario__tres,
+  .img-escenario__cuatro {
+    width: 20vw;
+    height: 15vw;
+  }
+  figcaption {
+    display: none;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: azure;
+    width: 100%;
+    font-size: 17px;
+  }
+  figure:hover figcaption {
+    display: block;
+  }
+  /*SECCIÓN TALLERES-DESKTOP*/
+  .main-talleres__subtitle {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    background-color: #b10202;
+    width: 100%;
+  }
+  .main-talleres__parrafo {
+    font-size: 2vw;
+    font-family: "Stint Ultra Condensed", cursive;
+    text-align: center;
+    width: 100%;
+  }
+  .main-talleres__img {
+    width: 25vw;
+    height: 20vw;
+    float: left;
+    border: #b10202 solid 5px;
+    margin-right: 2vw;
+  }
+  .talleres-container__teatro {
+    margin: 3vw;
+  }
+  .talleres-container__clown {
+    margin: 3vw;
+    height: 20vw;
+  }
+  .talleres-container__danza {
+    margin: 3vw;
+  }
+  .talleres-container__canto {
+    margin: 3vw;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

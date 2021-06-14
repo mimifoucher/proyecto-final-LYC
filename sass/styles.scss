@@ -1,0 +1,1813 @@
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;1,300&family=Oswald:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;1,300&family=Oswald:wght@500&family=Stint+Ultra+Condensed&display=swap");
+
+/*VARIABLES DE COLORES Y TAMAÑO*/
+$bordo: rgb(177, 2, 2);
+$blanco: #eeebdd;
+$ancho: 900px;
+
+/*MIXIN FLEXBOX*/
+@mixin flexbox(
+  $display: flex,
+  $align-items: stretch,
+  $flex-direction: row,
+  $justify-content: start
+) {
+  display: $display;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+}
+
+/*MIXIN ICONOS REDES SOCIALES*/
+@mixin icons($float: right, $width: 30px, $height: 30px) {
+  float: $float;
+  width: $width;
+  height: $height;
+}
+
+@mixin botonMobile($z-index: 300, $position: absolute) {
+  position: $position;
+  top: 0;
+  right: 0;
+  z-index: $z-index;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*AQUÍ COLOQUE LOS MEDIA QUIERES PARA CELULAR Y TABLET*/
+
+@media screen and (min-width: 240px) and (max-width:499px) {
+  /*BODY DE CELULAR*/
+  .body {
+    margin: 0;
+    background-color: $blanco;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr 110px;
+  }
+  /*HEADER DE CELULAR*/
+  .header {
+    background-color: $bordo;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    @include flexbox(flex, center, row, start);
+
+    &-logo__img {
+      width: 90px;
+      height: 110px;
+    }
+
+    &-menu {
+      display: none;
+
+      &__links {
+        display: none;
+      }
+    }
+
+    &-button {
+      @include botonMobile(300, absolute);
+
+      &__icon {
+        @include botonMobile(350);
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+        right: 10px;
+        /* top: 50px; */
+      }
+
+      &__hamburger {
+        @include botonMobile(325);
+        width: 50px;
+        height: 50px;
+        padding: 1rem;
+        @include flexbox(flex, row, center, center);
+        background: var(--primary-color);
+
+        /*   top: 58px; */
+      }
+    }
+
+    &-button &-button__hamburger > div {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      @include flexbox(flex, row, center, center);
+      transition: all 0.4s ease;
+    }
+
+    &-button &-button__hamburger > div:before,
+    &-button &-button__hamburger > div:after {
+      content: "";
+      position: absolute;
+      z-index: 325;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+    }
+
+    &-button &-button__hamburger > div:after {
+      top: 10px;
+    }
+
+    /*ANIMACIÓN DEL BOTÓN*/
+    &-button &-button__icon:checked + &-button__hamburger > div {
+      transform: rotate(135deg);
+    }
+
+    &-button &-button__icon:checked + &-button__hamburger > div:before,
+    &-button &-button__icon:checked + &-button__hamburger > div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    &-button &-button__icon:checked:hover + &-button__hamburger > div {
+      transform: rotate(225deg);
+    }
+
+    &-button &-button__icon:checked ~ .header-menu {
+      visibility: visible;
+    }
+
+    &-button &-button__icon:checked ~ .header-menu > div {
+      transform: scale(1);
+      transition-duration: var(--menu-speed);
+    }
+
+    &-button &-button__icon:checked ~ .header-menu > div > div {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    &-button .header-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      @include flexbox(flex, column, center, center);
+      visibility: hidden;
+      background-color: rgba(33, 33, 33, 0.7);
+    }
+
+    &-button .header-menu > div {
+      background: var(--over-color);
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vw;
+      @include flexbox(flex, row, center, center);
+      flex: none;
+      transform: scale(0);
+      transition: all 0.4 ease;
+    }
+
+    &-button .button-menu > div > div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &-button .header-menu > div > div > ul > li {
+      list-style: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+
+    &-button .header-menu > div > div > ul > li > a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+
+    &-title {
+      margin: 0;
+
+      &__leones {
+        color: $blanco;
+        font-size: 5vw;
+        margin: 0;
+        font-family: "New Tegomin", serif;
+        display: inline;
+      }
+
+      &__corderos {
+        color: black;
+        font-size: 5vw;
+        margin: 0;
+        font-family: "New Tegomin", serif;
+        display: inline;
+      }
+    }
+
+    &-subtitle {
+      text-align: center;
+      font-size: 3vw;
+    }
+
+    /* &-logo__img {
+      width: 120px;
+      height: 150px;
+    } */
+  }
+
+  /*MAIN PARA CELULAR*/
+  .main {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    &-desktop {
+      display: none;
+    }
+
+    &-inscripciones {
+      text-align: center;
+      background: url(../imagenes-css/imagenes-alquilersalas/891f4bc1459ba4dbd3fd546e5b32dd8c.jpg)
+        repeat fixed 100%;
+      background-size: cover;
+      background-position-x: center;
+      font-family: "New Tegomin", serif;
+      height: 250px;
+      padding: 13% 0;
+      font-size: 3vw;
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      &__text {
+        color: black;
+        margin: 0;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 0 3vw 0 3vw;
+        width: 70vw;
+        height: 35vw;
+        font-size: 4vw;
+      }
+    }
+
+    &-funciones {
+      overflow: hidden;
+
+      &__title {
+        font-size: 4vw;
+        padding: 30px 0px 5px 0px;
+        font-family: "New Tegomin", serif;
+        width: 100%;
+        background-color: $bordo;
+      }
+
+      &__hamlet,
+      &__bodas,
+      &__romeo,
+      &__yerma {
+        height: 200px;
+        width: 20%;
+        float: left;
+      }
+    }
+
+    &-figure {
+      position: relative;
+      width: 500%;
+      margin: 0;
+      left: 0;
+      animation: 20s slider infinite;
+    }
+
+    &-subtitle {
+      height: 30px;
+      background-color: $bordo;
+    }
+
+    &-title__section {
+      color: $bordo;
+      font-size: 5vw;
+      font-family: "New Tegomin", serif;
+    }
+
+    /*MAIN CELULAR CARTELERA*/
+    &-cartelera__img {
+      width: 100%;
+      height: 60vw;
+      padding-top: 3vw;
+      border-radius: 5px;
+      transition: all 500ms ease-out;
+    }
+
+    &-cartelera__figure {
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    &-cartelera__info {
+      position: absolute;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 500ms ease-out;
+      width: 100%;
+      height: 100%;
+      font-size: 4vw;
+    }
+
+    &-cartelera__figure:hover > .main-cartelera__info {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /*IMAGENES CHARLAS DE CAFE*/
+
+    &-cafe {
+      width: 100%;
+
+      &__img2{
+        width: 100%;
+      }
+    }
+
+  }
+
+  @keyframes slider {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+    100% {
+      left: -400%;
+    }
+  }
+
+  #main-subtitle {
+    background-color: $bordo;
+    width: 100%;
+
+    &__cafe {
+      font-family: "New Tegomin", serif;
+      background-color: $bordo;
+    }
+  }
+
+  /*FOOTER PARA CELULAR*/
+  .footer {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    background-color: $bordo;
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    &-instagram__img,
+    &-facebook__img,
+    &-home__img,
+    &-mail__img,
+    &-phone__img,
+    &-twitter__img {
+      width: 15px;
+      height: 15px;
+      margin: 7px 0px;
+      cursor: pointer;
+    }
+
+    &-instagram__img:hover {
+      background-color: rgb(173, 28, 149);
+      border-radius: 6px;
+    }
+    &-facebook__img:hover {
+      background-color: rgb(58, 58, 126);
+      border-radius: 8px;
+    }
+
+    &-twitter__img:hover {
+      background-color:rgb(77, 176, 184);
+      border-radius: 8px;
+    }
+
+    &-home__img:hover {
+      background-color: grey;
+      border-radius: 8px;
+    }
+
+    &-mail__img:hover {
+      background-color:white;
+      border-radius: 8px;
+    }
+
+    &-phone__img:hover {
+      background-color:rgb(8, 156, 8);
+      border-radius: 8px;
+    }
+
+    &-copyright {
+      display: flex;
+      align-items: center;
+
+      & h3 {
+        margin: 5px 2px;
+        font-size: 2vw;
+      }
+    }
+
+    &-redes {
+      flex-direction: column;
+      display: flex;
+
+      &__div {
+        display: flex;
+        & h3 {
+          display: none;
+        }
+      }
+    }
+
+    &-datos {
+      flex-direction: column;
+      display: flex;
+
+      &__div {
+        display: flex;
+
+        & h3 {
+          margin: 5px 3px;
+          font-size: 10px;
+        }
+      }
+    }
+
+    & &-copyright__text {
+      font-size: 10px;
+    }
+
+    &-copyright__img {
+      width: 10px;
+      height: 10px;
+      margin: 5px 0px;
+    }
+    }
+
+  /*SECCIÓN TALLERES-CELULAR*/
+  .main-talleres__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+
+
+  .main-talleres__parrafo {
+    
+    background-color: rgba(173, 21, 21, 0.7);
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+  }
+
+  .talleres-container__teatro,
+  .talleres-container__canto,
+  .talleres-container__clown,
+  .talleres-container__danza
+   {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .main-talleres__img {
+    padding-bottom: 4vw;
+    width: 100%;
+  }
+
+  .main-talleres__subtitle {
+    background-color: $bordo;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+    font-size: 6vw;
+  }
+
+  /*SECCIÓN "ALQUILER DE SALAS-CELULAR*/
+
+  .salas-container {
+   
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-escenario {
+    width: 100%;
+
+    &__cuatro {
+      width: 100%;
+    }
+  }
+
+
+  .salas-subtitle {
+    background-color: $bordo;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+
+  }
+
+  .salas-text__p {
+    background-color: rgba(173, 21, 21, 0.7);
+    font-weight: bold;
+    font-family: "Newsreader", serif;
+  }
+
+
+  /*SECCIÓN "CARTELERA-CELULAR*/
+
+  .main-table {
+  width: 100%;
+
+  &__title {
+    background-color: $bordo;
+    color: black;
+  }
+}
+
+th {
+  font-size: 3vw;
+}
+
+td {
+  font-size: 3vw;
+}
+
+/*SECCIÓN "CONTACTO-CELULAR*/
+
+.main-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(173, 21, 21, 0.7);
+
+  &__label {
+    font-size: 4vw;
+    padding: 0 10px 0 10px;
+  }
+
+  &__datos {
+    display: flex;
+    padding: 10px 0 10px 0;
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+  }
+
+  &__button {
+    display: flex;
+    padding: 0 10px 10px 10px;
+    justify-content: space-around;
+  }
+
+  &__textarea {
+    padding: 0 10px 10px 10px;
+    display: flex;
+  }
+
+  input {
+    cursor: pointer;
+    border: solid 3px;
+    border-radius: 5px;
+    color: $blanco;
+    background-color: black;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.main-map {
+  width: 100%;
+
+  &__iframe {
+    width: 100%;
+  }
+}
+
+.contacto-text {
+  font-family: "New Tegomin", serif;
+  padding: 3vw;
+  text-align: center;
+  font-weight: bold;
+}
+
+}
+
+/*MEDIA QUIERE TABLET*/
+
+@media screen and (min-width: 500px) and (max-width:768px) {
+  .body {
+    margin: 0;
+    background-color: $blanco;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr 170px;
+  }
+  /*HEADER DE TABLET*/
+  .header {
+    background-color: $bordo;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    @include flexbox(flex, center, row, start);
+
+    &-logo__img {
+      width: 90px;
+      height: 110px;
+    }
+
+    &-menu {
+      display: none;
+
+      &__links {
+        display: none;
+      }
+    }
+
+    &-button {
+      @include botonMobile(300, absolute);
+
+      &__icon {
+        @include botonMobile(350);
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+        right: 10px;
+        /* top: 50px; */
+      }
+
+      &__hamburger {
+        @include botonMobile(325);
+        width: 50px;
+        height: 50px;
+        padding: 1rem;
+        @include flexbox(flex, row, center, center);
+        background: var(--primary-color);
+
+        /*   top: 58px; */
+      }
+    }
+
+    &-button &-button__hamburger > div {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      @include flexbox(flex, row, center, center);
+      transition: all 0.4s ease;
+    }
+
+    &-button &-button__hamburger > div:before,
+    &-button &-button__hamburger > div:after {
+      content: "";
+      position: absolute;
+      z-index: 325;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+    }
+
+    &-button &-button__hamburger > div:after {
+      top: 10px;
+    }
+
+    /*ANIMACIÓN DEL BOTÓN*/
+    &-button &-button__icon:checked + &-button__hamburger > div {
+      transform: rotate(135deg);
+    }
+
+    &-button &-button__icon:checked + &-button__hamburger > div:before,
+    &-button &-button__icon:checked + &-button__hamburger > div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    &-button &-button__icon:checked:hover + &-button__hamburger > div {
+      transform: rotate(225deg);
+    }
+
+    &-button &-button__icon:checked ~ .header-menu {
+      visibility: visible;
+    }
+
+    &-button &-button__icon:checked ~ .header-menu > div {
+      transform: scale(1);
+      transition-duration: var(--menu-speed);
+    }
+
+    &-button &-button__icon:checked ~ .header-menu > div > div {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    &-button .header-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      @include flexbox(flex, column, center, center);
+      visibility: hidden;
+      background-color: rgba(33, 33, 33, 0.7);
+    }
+
+    &-button .header-menu > div {
+      background: var(--over-color);
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vw;
+      @include flexbox(flex, row, center, center);
+      flex: none;
+      transform: scale(0);
+      transition: all 0.4 ease;
+    }
+
+    &-button .button-menu > div > div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &-button .header-menu > div > div > ul > li {
+      list-style: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+
+    &-button .header-menu > div > div > ul > li > a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+
+    &-title {
+      margin: 0;
+
+      &__leones {
+        color: $blanco;
+        font-size: 5vw;
+        margin: 0;
+        font-family: "New Tegomin", serif;
+        display: inline;
+      }
+
+      &__corderos {
+        color: black;
+        font-size: 5vw;
+        margin: 0;
+        font-family: "New Tegomin", serif;
+        display: inline;
+      }
+    }
+
+    &-subtitle {
+      text-align: center;
+      font-size: 3vw;
+    }
+  }
+
+  .main {
+      /*MAIN INDEX*/
+      grid-column: 1/4;
+      grid-row: 2/3;
+  
+      &-subtitle__cafe {
+        font-size: 2.5vw;
+        font-family: "New Tegomin", serif;
+        width: 100%;
+        background-color: $bordo;
+        text-align: center;
+      }
+  
+      &-inscripciones {
+        text-align: center;
+        background: url(../imagenes-css/imagenes-alquilersalas/891f4bc1459ba4dbd3fd546e5b32dd8c.jpg)
+          repeat fixed 100%;
+        background-size: cover;
+        background-position-x: center;
+        font-family: "New Tegomin", serif;
+        height: 250px;
+        padding: 13% 0;
+        font-size: 3vw;
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+  
+        &__text {
+          color: black;
+          margin: 0;
+          border-radius: 15px;
+          background-color: rgba(255, 255, 255, 0.5);
+          padding: 0 3vw 0 3vw;
+          width: 70vw;
+          height: 14vw;
+          font-size: 3.5vw;
+        }
+      }
+  
+      &-funciones {
+        display: none;
+      }
+  
+      &-desktop {
+        display: flex;
+        flex-direction: column;
+        height: 40vw;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+  
+        &__title {
+          font-size: 2.5vw;
+          font-family: "New Tegomin", serif;
+          background-color: $bordo;
+          width: 100%;
+          height: 4vw;
+        }
+  
+        &__hamlet,
+        &__bodas,
+        &__romeo {
+          width: 25vw;
+          height: 20vw;
+          margin: 2vw;
+        }
+  
+        &__figure {
+          height: 10vw;
+          width: 100%;
+          position: relative;
+        }
+      }
+  
+      &-cafe {
+  
+        &__img1 {
+          width: 90vw;
+          padding-top: 3vw;
+        }
+  
+        &__img2 {
+          width: 30vw;
+          height: 30vw;
+          padding: 0.5vw;
+        }
+
+        &__container {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+
+    .footer {
+      grid-column: 1/4;
+      grid-row: 3/4;
+      display: flex;
+      flex-direction: column;
+      background-color: $bordo;
+  
+      &-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 10px;
+      }
+  
+      &-instagram__img,
+      &-facebook__img,
+      &-home__img,
+      &-mail__img,
+      &-phone__img,
+      &-twitter__img {
+        width: 20px;
+        height: 20px;
+        margin: 10px 0px;
+        cursor: pointer;
+        
+      }
+  
+      &-instagram__img:hover {
+        background-color: rgb(173, 28, 149);
+        border-radius: 6px;
+      }
+      &-facebook__img:hover {
+        background-color: rgb(44, 44, 194);
+        border-radius: 8px;
+      }
+  
+      &-twitter__img:hover {
+        background-color:rgb(77, 176, 184);
+        border-radius: 8px;
+      }
+  
+      &-home__img:hover {
+        background-color: grey;
+        border-radius: 8px;
+      }
+  
+      &-mail__img:hover {
+        background-color:white;
+        border-radius: 8px;
+      }
+  
+      &-phone__img:hover {
+        background-color:rgb(8, 156, 8);
+        border-radius: 8px;
+      }
+  
+      &-copyright {
+        display: flex;
+  
+        & h3 {
+          margin: 5px 2px;
+          font-size: 3vw;
+        }
+        width: max-content;
+      }
+  
+      &-redes {
+        flex-direction: column;
+        display: flex;
+  
+        &__div {
+          display: flex;
+          & h3 {
+            margin: 1.9vw 10px;
+            font-size: 15px;
+          }
+        }
+      }
+  
+      &-datos {
+        flex-direction: column;
+        display: flex;
+  
+        &__div {
+          display: flex;
+  
+          & h3 {
+            margin: 1.9vw 10px;
+            font-size: 15px;
+          }
+        }
+      }
+  
+      & &-copyright__text {
+        font-size: 10px;
+      }
+  
+      &-copyright__img {
+        width: 20px;
+        height: 20px;
+        margin: 5px 0px;
+      }
+    }
+
+  /*SECCIÓN TALLERES-TABLET*/
+  .main-talleres__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+
+
+  .main-talleres__parrafo {
+    
+    background-color: rgba(173, 21, 21, 0.7);
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .talleres-container__teatro,
+  .talleres-container__canto,
+  .talleres-container__clown,
+  .talleres-container__danza
+   {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .main-talleres__img {
+    padding-bottom: 4vw;
+    width: 70vw;
+    
+  }
+
+  .main-talleres__subtitle {
+    background-color: $bordo;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+    text-align: center;
+  }
+
+
+  /*SECCIÓN ALQUILER DE SALAS-TABLET*/
+
+  .salas-container {
+   
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .salas-text__p {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(173, 21, 21, 0.7);
+    font-family: "Newsreader", serif;
+  }
+
+  .img-escenario,
+  .img-teatro,
+  .img-musica,
+  .img-danza {
+    width: 100%;
+
+    &__uno,
+    &__dos,
+    &__tres,
+    &__cuatro {
+      width: 100%;
+    }
+  }
+
+
+  .salas-subtitle {
+    background-color: $bordo;
+    width: 100%;
+    font-family: "New Tegomin", serif;
+    text-align: center;
+  }
+
+
+  /*SECCIÓN CARTELERA-TABLET*/
+
+  .main-cartelera__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .main-cartelera__img {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .main-cartelera__figure {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .main-cartelera__info {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 500ms ease-out;
+    width: 100%;
+    height: 100%;
+    font-size: 3vw;
+    text-align: center;
+  }
+
+  .main-cartelera__figure:hover > .main-cartelera__info {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .main-table {
+  width: 100%;
+
+  &__title {
+    background-color: $bordo;
+    color: black;
+  }
+}
+
+th {
+  font-size: 3vw;
+}
+
+td {
+  font-size: 3vw;
+}
+
+/*SECCIÓN CONTACTO-TABLET*/
+  .contacto-text {
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+    font-family: "New Tegomin", serif;
+    padding: 3vw;
+    font-weight: bold;
+  }
+
+  .main-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(173, 21, 21, 0.7);
+  align-items: center;
+
+  &__label {
+    font-size: 3vw;
+    padding: 0 10px 0 10px;
+  }
+
+  &__datos {
+    display: flex;
+    padding: 10px 0 10px 0;
+    font-family: "Newsreader", serif;
+    font-weight: bold;
+  }
+
+  &__button {
+    display: flex;
+    padding: 0 10px 10px 10px;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &__textarea {
+    padding: 0 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  textarea {
+    width: 70vw;
+    height: 40vw;
+  }
+
+  input {
+    cursor: pointer;
+    border: solid 3px;
+    border-radius: 5px;
+    color: $blanco;
+    background-color: black;
+  }
+}
+
+  textarea {
+  resize: none;
+}
+
+  .main-map {
+  width: 100%;
+
+  &__iframe {
+    width: 100%;
+    height: 50vw;
+  }
+  }
+}
+
+
+/*MEDIA QUIERE PARA DESKTOP*/
+
+@media screen and (min-width: 769px) {
+  /*BODY DESKTOP*/
+  .body {
+    margin: 0;
+    padding-top: 0;
+    background-color: $blanco;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 150px 1fr 230px;
+
+    max-width: 100%;
+  }
+  //HEADER DESKTOP
+  .header {
+    background-color: $bordo;
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    grid-column: 1/4;
+    grid-row: 1/2;
+
+    &-button {
+      display: none;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    &-title {
+      margin: 0;
+
+      &__leones {
+        color: $blanco;
+        font-size: 2.5vw;
+        margin: 0;
+        font-family: "New Tegomin", serif;
+        display: inline;
+      }
+
+      &__corderos {
+        color: black;
+        font-size: 2.5vw;
+        margin: 0;
+        font-family: "New Tegomin", serif;
+        display: inline;
+      }
+    }
+
+    &-subtitle {
+      text-align: center;
+      font-size: 1.5vw;
+    }
+
+    &-logo__img {
+      width: 130px;
+      height: 150px;
+    }
+
+    &-menu {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      margin: 0;
+
+      &__item {
+        color: black;
+        list-style: none;
+        margin: 0 2vw 0 2vw;
+      }
+
+      &__links {
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        background-color: $bordo;
+        display: inline-block;
+        width: 100%;
+        font-size: 2vw;
+        font-family: "Oswald", sans-serif;
+      }
+    }
+  }
+
+  li:hover .header-menu__links {
+    color: $blanco;
+  }
+
+  ul ul li {
+    display: block;
+  }
+
+  ul li:hover ul {
+    display: block;
+    color: black;
+    background-color: rgba(139, 52, 52, 0.3);
+  }
+
+  /*MIXIN IMAGENES DE LAS OBRAS DE TEATRO*/
+  @mixin flyers {
+    margin: 0px;
+    width: 400px;
+    height: 400px;
+  }
+  //MAIN DESKTOP
+  .main {
+    /*MAIN INDEX*/
+    grid-column: 1/4;
+    grid-row: 2/3;
+
+    &-subtitle__cafe {
+      font-size: 2.5vw;
+      font-family: "New Tegomin", serif;
+      width: 100%;
+      background-color: $bordo;
+      text-align: center;
+    }
+
+    &-inscripciones {
+      text-align: center;
+      background: url(../imagenes-css/imagenes-alquilersalas/891f4bc1459ba4dbd3fd546e5b32dd8c.jpg)
+        repeat fixed 100%;
+      background-size: cover;
+      background-position-x: center;
+      font-family: "New Tegomin", serif;
+      height: 250px;
+      padding: 13% 0;
+      font-size: 3vw;
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      &__text {
+        color: black;
+        margin: 0;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 0 3vw 0 3vw;
+        width: 70vw;
+        height: 14vw;
+        font-size: 3.5vw;
+      }
+    }
+
+    &-funciones {
+      display: none;
+    }
+
+    &-desktop {
+      display: flex;
+      flex-direction: column;
+      height: 35vw;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+
+      &__title {
+        font-size: 2.5vw;
+        font-family: "New Tegomin", serif;
+        background-color: $bordo;
+        width: 100%;
+        height: 4vw;
+      }
+
+      &__hamlet,
+      &__bodas,
+      &__romeo {
+        width: 25vw;
+        height: 20vw;
+        margin: 2vw;
+      }
+
+      &__figure {
+        height: 10vw;
+        width: 100%;
+        position: relative;
+      }
+    }
+
+    &-cafe {
+      
+      align-items: center;
+      width: 100%;
+
+      &__container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+      }
+
+      &__img1 {
+        width: 90vw;
+        padding-top: 3vw;
+      }
+
+      &__img2 {
+        width: 30vw;
+        height: 30vw;
+        padding: 1vw;
+        
+      }
+    }
+
+    /*MAIN CARTELERA*/
+    &-cartelera__text {
+      background-color: $bordo;
+      font-family: "New Tegomin", serif;
+    }
+
+    &-cartelera__img {
+      width: 100%;
+      height: 20vw;
+      padding-top: 3vw;
+      border-radius: 5px;
+      transition: all 500ms ease-out;
+    }
+
+    &-cartelera__container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    &-cartelera__figure {
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    &-cartelera__info {
+      position: absolute;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 500ms ease-out;
+      width: 100%;
+      height: 100%;
+      font-size: 1vw;
+      text-align: center;
+    }
+
+    &-cartelera__figure:hover > .main-cartelera__info {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &-table__title {
+      font-size: 2.5vw;
+      font-family: "New Tegomin", serif;
+      background-color: $bordo;
+    }
+  }
+ //FOOTER DESKTOP
+  .footer {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    background-color: $bordo;
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    &-instagram__img,
+    &-facebook__img,
+    &-home__img,
+    &-mail__img,
+    &-phone__img,
+    &-twitter__img {
+      width: 25px;
+      height: 25px;
+      margin: 10px 0px;
+      cursor: pointer;
+      
+    }
+
+    &-instagram__img:hover {
+      background-color: rgb(173, 28, 149);
+      border-radius: 6px;
+    }
+    &-facebook__img:hover {
+      background-color: rgb(44, 44, 194);
+      border-radius: 8px;
+    }
+
+    &-twitter__img:hover {
+      background-color:rgb(77, 176, 184);
+      border-radius: 8px;
+    }
+
+    &-home__img:hover {
+      background-color: grey;
+      border-radius: 8px;
+    }
+
+    &-mail__img:hover {
+      background-color:white;
+      border-radius: 8px;
+    }
+
+    &-phone__img:hover {
+      background-color:rgb(8, 156, 8);
+      border-radius: 8px;
+    }
+
+    &-copyright {
+      display: flex;
+
+      & h3 {
+        margin: 5px 2px;
+        font-size: 3vw;
+      }
+      width: max-content;
+    }
+
+    &-redes {
+      flex-direction: column;
+      display: flex;
+
+      &__div {
+        display: flex;
+        & h3 {
+          margin: 1vw 10px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    &-datos {
+      flex-direction: column;
+      display: flex;
+
+      &__div {
+        display: flex;
+
+        & h3 {
+          margin: 1vw 10px;
+        }
+      }
+    }
+
+    & &-copyright__text {
+      font-size: 15px;
+    }
+
+    &-copyright__img {
+      width: 20px;
+      height: 20px;
+      margin: 5px 0px;
+    }
+  }
+
+  /*SECCIÓN CONTACTO-DESKTOP*/
+  .contacto-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .main-form {
+    background-color: rgba(173, 21, 21, 0.7);
+    width: 60vw;
+    height: 50vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__label {
+      font-size: 1.7vw;
+      font-family: "Stint Ultra Condensed", cursive;
+      letter-spacing: 0.2vw;
+    }
+    &__button {
+      display: flex;
+      justify-content: space-around;
+      padding: 2vw;
+      width: 100%;
+    }
+
+    &__datos {
+      padding: 0.6vw;
+    }
+  }
+
+  textarea {
+    width: 40vw;
+    height: 25vw;
+  }
+
+  .contacto-text {
+    font-size: 1.7vw;
+    font-family: "New Tegomin", serif;
+    padding: 3vw;
+    width: 60vw;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  input {
+    cursor: pointer;
+    border: solid 3px;
+    border-radius: 5px;
+    color: $blanco;
+    background-color: black;
+  }
+
+  .main-map {
+    width: 100%;
+
+    &__iframe {
+      width: 100%;
+      height: 30vw;
+    }
+  }
+
+  /*SECCIÓN ALQUILER DE SALAS-DESKTOP*/
+
+  .body-salas {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    max-width: 100%;
+  }
+
+  .main-title__section {
+    font-size: 3vw;
+  }
+
+  .salas-text__p {
+    padding: 5vw 0 0 0;
+    font-size: 2vw;
+    font-family: "Newsreader", serif;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+
+  .salas-container {
+    display: flex;
+    padding: 11vw 5vw 11vw 5vw;
+  }
+
+  .img-teatro,
+  .img-danza,
+  .img-musica,
+  .img-escenario {
+    flex: 25%;
+    padding: 2vw;
+  }
+
+  .salas-subtitle {
+    font-size: 1.5vw;
+    font-family: "Oswald", sans-serif;
+    background-color: $bordo;
+  }
+
+  .img-teatro:hover {
+    transform: scale(1.5, 1.5);
+    transition: 1s;
+  }
+
+  .img-danza:hover {
+    transform: scale(1.5, 1.5);
+    transition: 1s;
+  }
+
+  .img-musica:hover {
+    transform: scale(1.5, 1.5);
+    transition: 1s;
+  }
+
+  .img-escenario:hover {
+    transform: scale(1.5, 1.5);
+    transition: 1s;
+  }
+
+  .img-teatro__uno,
+  .img-teatro__dos,
+  .img-teatro__tres,
+  .img-teatro__cuatro,
+  .img-danza__uno,
+  .img-danza__dos,
+  .img-danza__tres,
+  .img-danza__cuatro,
+  .img-musica__uno,
+  .img-musica__dos,
+  .img-musica__tres,
+  .img-musica__cuatro,
+  .img-escenario__uno,
+  .img-escenario__dos,
+  .img-escenario__tres,
+  .img-escenario__cuatro {
+    width: 20vw;
+    height: 15vw;
+  }
+
+  figcaption {
+    display: none;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: azure;
+    width: 100%;
+    font-size: 17px;
+  }
+
+  figure:hover figcaption {
+    display: block;
+  }
+
+  /*SECCIÓN TALLERES-DESKTOP*/
+
+  .main-talleres__subtitle {
+    font-size: 2.5vw;
+    font-family: "New Tegomin", serif;
+    background-color: $bordo;
+    width: 100%;
+  }
+
+  .main-talleres__parrafo {
+    font-size: 2vw;
+    font-family: "Stint Ultra Condensed", cursive;
+    text-align: center;
+    width: 100%;
+  }
+
+  .main-talleres__img {
+    width: 25vw;
+    height: 20vw;
+    float: left;
+    border: $bordo solid 5px;
+    margin-right: 2vw;
+  }
+
+  .talleres-container__teatro {
+    margin: 3vw;
+  }
+
+  .talleres-container__clown {
+    margin: 3vw;
+    height: 20vw;
+  } 
+
+  .talleres-container__danza {
+    margin: 3vw;
+  }
+
+  .talleres-container__canto {
+    margin: 3vw;
+  }
+  
+} 

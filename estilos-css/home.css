@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap");
+
+img {
+  max-width: 100%;
+}
+
+html {
+  min-height: 100%;
+}
+
+.bodyInicio {
+  margin: 0;
+  padding-top: 0;
+  background-image: url(../fondos/fondo_leon1-removebg-preview.png);
+  background-color: blanchedalmond;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 150px 1fr 100px;
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+p {
+  font-size: 1vw;
+}
+
+.imgLogo {
+  width: 100px;
+  height: 120px;
+}
+
+.headerTitleLeones {
+  color: rgb(145, 14, 14);
+  font-family: "New Tegomin", serif;
+  font-size: 2vw;
+}
+
+.headerTitleCorderos {
+  color: black;
+  font-family: "New Tegomin", serif;
+  font-size: 2vw;
+}
+
+.headerSubtitle {
+  text-align: end;
+  margin: 0;
+}
+
+.headerMenu {
+  width: 900px;
+  display: inline-flex;
+  justify-content: space-around;
+  font-size: 2.5vh;
+  align-items: flex-end;
+
+  /*Aquí utilice display Inline-flex para colocar en linea los enlaces del menu, un space-around para colocar espacio entre ellos y un flex-end para que queden posicionados en el final del contenedor*/
+}
+
+.headerMenuItem {
+  color: black;
+  list-style: none;
+}
+
+.headerContainer {
+  background-color: rgba(190, 157, 158, 0.5);
+  display: flex;
+  align-content: center;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  /*Aquí utilice display Flex Y align-content para centrar el contenido del header*/
+}
+
+.headerMenuLinks {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  background-color: rgb(247, 226, 201);
+  border-color: rgb(102, 44, 44);
+  border-style: outset;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+li:hover .headerMenuLinks {
+  background-color: rgb(153, 63, 63);
+  color: rgb(247, 226, 201);
+}
+
+.headerSubmenu {
+  position: absolute;
+  display: none;
+}
+
+ul ul li {
+  display: block;
+}
+
+ul li:hover ul {
+  display: block;
+  color: black;
+  background-color: rgb(110, 47, 47, 0.3);
+}
+
+nav {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+main {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.mainInicioTalleres {
+  margin: 100px;
+  text-align: center;
+  background-color: rgb(110, 47, 47, 0.4);
+  font-family: "New Tegomin", serif;
+  letter-spacing: 3px;
+}
+
+.mainFuncionesInicio {
+  display: flex;
+  justify-content: space-evenly;
+
+  /*aquí se utilizaron atributos de flex-box para colocar las imagenes*/
+}
+
+.mainImgHamlet {
+  margin: 0px;
+  width: 400px;
+  height: 400px;
+}
+
+.mainImgBodas {
+  margin: 0px;
+  width: 400px;
+  height: 400px;
+}
+
+.mainImgMateo {
+  margin: 0px;
+  width: 500px;
+  height: 400px;
+}
+
+figure {
+  position: relative;
+}
+
+figcaption {
+  display: none;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  background-color: azure;
+  width: 100%;
+  font-size: 17px;
+}
+
+figure:hover figcaption {
+  display: block;
+}
+
+/*ACÁ COMIENZA EN FOOTER DEL INDEX*/
+footer {
+  grid-column: 1/4;
+  grid-row: 3/4;
+  margin: 25px;
+}
+
+.footerImgInstagram,
+.footerImgFacebook {
+  width: 30px;
+  height: 30px;
+  float: right;
+  padding: 0 10px 0 0;
+}
+
+.footerImgCopyright {
+  width: 30px;
+  height: 30px;
+  float: left;
+}
+
+.footerTextCopyright {
+  display: inline-block;
+  font-size: small;
+}
+
+/*AQUÍ COLOQUE LOS MEDIA QUIERES PARA CELULAR Y TABLET*/
+
+@media (max-width: 320px) {
+  .bodyInicio {
+    margin: 0;
+    background-image: url(../fondos/fondo_leon1-removebg-preview.png);
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr 50px;
+    min-width: 100vw;
+    height: 100%;
+  }
+
+  .headerContainer {
+    background-color: #810000;
+    display: flex;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerMenu {
+    display: none;
+  }
+  .headerMenuLinks {
+    display: none;
+  }
+
+  .headerTitleLeones,
+  .headerTitleCorderos {
+    font-size: 5vw;
+  }
+
+  .headerSubtitle {
+    text-align: center;
+    font-size: 4vw;
+  }
+
+  nav {
+    display: none;
+  }
+
+  p {
+    font-size: 5vw;
+  }
+
+  main {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-align: center;
+  }
+
+  aside {
+    display: none;
+  }
+
+  .mainInicioTalleres {
+    margin: 30px;
+    text-align: center;
+    background-color: rgb(110, 47, 47, 0.4);
+    font-family: "New Tegomin", serif;
+    height: 200px;
+    width: 250px;
+    font-size: 3vw;
+  }
+
+  .main-funciones {
+    align-items: center;
+    display: block;
+  }
+
+  .mainImgBodas,
+  .mainImgHamlet,
+  .mainImgMateo {
+    height: 200px;
+    width: 250px;
+  }
+
+  footer {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+
+  .footerImgInstagram,
+  .footerImgFacebook {
+    display: flex;
+    justify-content: end;
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .footerImgCopyright {
+    display: flex;
+    justify-content: start;
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .footerTextCopyright {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .bodyInicio {
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr 50px;
+    min-width: 100vw;
+    height: 100%;
+  }
+
+  .headerContainer {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    min-width: 100vw;
+  }
+
+  .headerTitleLeones,
+  .headerTitleCorderos {
+    font-size: 4vw;
+  }
+
+  .headerSubtitle {
+    font-size: 2vw;
+    margin: 0px;
+    text-align: left;
+  }
+
+  .headerMenu {
+    max-width: 100%;
+    padding: 0;
+  }
+  .headerMenuLinks {
+    font-size: 3vw;
+    display: inline-flex;
+    justify-content: space-around;
+  }
+
+  aside {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  main {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    text-align: center;
+    min-width: 100vw;
+  }
+
+  .mainInicioTalleres {
+    text-align: center;
+    background-color: rgb(110, 47, 47, 0.4);
+    font-family: "New Tegomin", serif;
+  }
+
+  .mainFuncionesInicio {
+    display: block;
+    align-items: center;
+  }
+
+  p {
+    font-size: 2vw;
+    margin: 0;
+  }
+
+  footer {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+}
+
+/*ACÁ COMIENZA EL CSS DE LA SECCIÓN "ALQUILER DE SALAS*/
+
+.titleSectionSalas {
+  color: rgb(141, 21, 21);
+  text-align: center;
+}
+
+.bodySalas {
+  margin: 0;
+  padding-top: 0;
+  background-image: url(../fondos/cordero_fondo1-removebg-preview.png);
+  background-color: blanchedalmond;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 150px 1fr 100px;
+}
+
+.containerImgSalas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  /*aquí se utilizaron atributos de flex-box para colocar las imagenes*/
+}
+
+.imgRecepcion {
+  width: 700px;
+  height: 600px;
+  padding: 10px 10px 100px 10px;
+}
+
+.imgSalaEnsayo {
+  width: 700px;
+  height: 600px;
+  padding: 10px 10px 100px 10px;
+}
+
+.imgEscenario1 {
+  width: 700px;
+  height: 600px;
+  padding: 10px 10px 100px 10px;
+}
+
+.imgEscenario2 {
+  width: 700px;
+  height: 600px;
+  padding: 10px 10px 100px 10px;
+}
+
+/*ACÁ COMIENZA EL CSS DE LA SECCIÓN "CARTELERA"*/
+
+.titleSectionCartelera {
+  color: rgb(141, 21, 21);
+}
+
+.titleTableCartelera {
+  background-color: rgba(105, 26, 26, 0.4);
+  color: black;
+}
+
+.bodyCartelera {
+  margin: 0;
+  padding-top: 0;
+  background-color: blanchedalmond;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 150px 1fr 100px;
+}
+
+/*ACÁ COMIENZA EL CSS DE LA SECCIÓN "TALLERES"*/
+
+.titleSectionTalleres {
+  color: rgb(141, 21, 21);
+}
+
+.bodyTalleres {
+  margin: 0;
+  padding-top: 0;
+  background-image: url(../fondos/leones_y_corderos-removebg-preview.png);
+  background-color: blanchedalmond;
+  background-size: cover;
+}
+
+.containerImgTeatro,
+.containerImgClown,
+.containerImgDanza,
+.containerImgCanto {
+  display: flex;
+  justify-content: space-around;
+}
+
+.imgTalleres {
+  padding: 50px 0px 50px 0px;
+}
+
+.imgTalleres:hover {
+  transform: scale(1.5, 1.5);
+  transition: 1s;
+}
+
+/*ACÁ COMIENZA EL CSS DE LA SECCIÓN "CONTACTO"*/
+
+.titleSectionContacto {
+  color: rgb(141, 21, 21);
+}
+
+.bodyContacto {
+  margin: 0;
+  padding-top: 0;
+  background-image: url(../fondos/lamb-removebg-preview.png);
+  background-color: blanchedalmond;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 150px 1fr 100px;
+}
